@@ -1,7 +1,5 @@
-##################################
-# APPLY CHANGES - source ~/.zshrc
-##################################
-
+source $HOME/.aliases
+source $HOME/.functions
 
 
 # If you come from bash you might have to change your $PATH.
@@ -74,7 +72,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -88,17 +85,6 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # openssl
 export PATH="/usr/local/opt/openssl/bin:$PATH"
@@ -106,122 +92,6 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="${HOME}/code/cloned/flutter/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-
-
-# CUSTOM ALIASES
-alias apt-get='sudo apt-get'
-alias bci='brew cask install'
-alias c='clear'
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
-# Calculator with math support
-alias bc='bc -l -q'
-alias -g calc='~/calc'
-
-# Misc.
-alias header='curl -I'
-alias hidden='ls -ld .?*'
-alias nowtime='date +"%T"'
-alias nowdate='date +"%d-%m-%Y"'
-alias path='echo -e ${PATH//:/\\n}'
-
-# Change dir
-alias cd..='cd ..'
-alias ..='cd ..'
-alias ...='cd ../../../'
-alias ....='cd ../../../../'
-alias .....='cd ../../../../'
-alias .4='cd ../../../../'
-alias .5='cd ../../../../..'
-alias home='cd ~'
-
-# Git
-alias ga='git add'
-alias gac='git add . && git commit -a -m '
-alias gb='git branch'
-alias gc='git commit -m'
-alias gcb='git checkout -b'
-alias gpo='git push origin'
-alias gs='git status'
-
-# Grep
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-
-# History
-alias h='history'
-alias hs='history | grep'
-
-# IP
-alias myip='curl http://ipecho.net/plain; echo'
-
-# NPM
-alias nis='npm install --save '
-
-# wttr.in
-alias wttr='curl https://wttr.in/Saint-Petersburg\?format\=3'
-
-# zshell
-alias zs='source ~/.zshrc'
-
-# apps
-alias -g wsend='/Users/yerofey/.wsend/wsend'
-
-
-# generators
-genstr() {
-	echo "Random string (25 symbols):";
-	pwgen -Bcns 25 1
-}
-
-genpwd() {
-	echo "5 strong passwords:";
-	echo ""
-	pwgen -Bcnsy -r '?!li1I0OB8|`.,:;^"[]{}\/<>()-_+~' 25 5 -1
-}
-
-genpwd1() {
-	pwgen -Bcnsy -r '?!li1I0OB8|`.,:;^"[]{}\/<>()-_+~' 25 1 | pbcopy;
-	echo "🔐 Strong password has been created!"
-}
-
-mycommands() {
-	echo "----- My commands -----"
-	echo ""
-	echo "bc"
-	echo "c"
-	echo "h, hs"
-	echo ""
-
-	echo "Git:"
-	echo "* git add               -  ga"
-	echo "* git add all & commit  -  gac"
-	echo "* git branch            -  gb"
-	echo "* git commit            -  gc"
-	echo "* git checkout -b       -  gcb"
-	echo "* git push origin       -  gpo"
-	echo "* git status            -  gs"
-	echo ""
-
-	echo "Generators:"
-	echo "* passowrds             -  genpwd, genpwd1"
-	echo "* random string         -  genstr"
-
-	echo ""
-	echo "myip"
-	echo "websites"
-	echo "wttr"
-	echo ""
-	echo "-----------------------"
-}
-
-websites() {
-	echo "Cheatsheet  -  cheat.sh"
-	echo "Currencies  -  rate.sx"
-	echo "Weather     -  wttr.in"
-}
 
 
 # The next line updates PATH for the Google Cloud SDK.
