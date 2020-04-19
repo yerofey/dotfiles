@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+# CUSTOM ALIASES
+alias apt-get='sudo apt-get'
+alias bci='brew cask install'
+alias c='clear'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# Calculator with math support
+alias bc='bc -l -q'
+alias -g calc='~/calc'
+
+# Misc.
+alias header='curl -I'
+alias hidden='ls -ld .?*'
+alias nowtime='date +"%T"'
+alias nowdate='date +"%d-%m-%Y"'
+alias path='echo -e ${PATH//:/\\n}'
+
+# Change dir
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+alias home='cd ~'
+
+# Git
+alias ga='git add'
+alias gac='git add . && git commit -a -m '
+alias gb='git branch'
+alias gc='git commit -m'
+alias gcb='git checkout -b'
+alias gpo='git push origin'
+alias gs='git status'
+
+# Grep
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# History
+alias h='history'
+alias hs='history | grep'
+
+# IP
+alias myip='curl http://ipecho.net/plain; echo'
+
+# NPM
+alias nis='npm install --save '
+
+# wttr.in
+alias wttr='curl https://wttr.in/Saint-Petersburg\?format\=3'
+
+# zshell
+alias zs='source ~/.zshrc'
+
+# apps
+alias -g wsend='/Users/yerofey/.wsend/wsend'
