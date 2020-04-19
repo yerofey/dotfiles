@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+genstr() {
+	echo "Random string (25 symbols):";
+	pwgen -Bcns 25 1
+}
+
+genpwd() {
+	echo "5 strong passwords:";
+	echo ""
+	pwgen -Bcnsy -r '?!li1I0OB8|`.,:;^"[]{}\/<>()-_+~' 25 5 -1
+}
+
+genpwd1() {
+	pwgen -Bcnsy -r '?!li1I0OB8|`.,:;^"[]{}\/<>()-_+~' 25 1 | pbcopy;
+	echo "🔐 Strong password has been created!"
+}
+
+mycommands() {
+	echo "----- My commands -----"
+	echo ""
+	echo "bc"
+	echo "c"
+	echo "h, hs"
+	echo ""
+
+	echo "Git:"
+	echo "* git add               -  ga"
+	echo "* git add all & commit  -  gac"
+	echo "* git branch            -  gb"
+	echo "* git commit            -  gc"
+	echo "* git checkout -b       -  gcb"
+	echo "* git push origin       -  gpo"
+	echo "* git status            -  gs"
+	echo ""
+
+	echo "Generators:"
+	echo "* passowrds             -  genpwd, genpwd1"
+	echo "* random string         -  genstr"
+
+	echo ""
+	echo "myip"
+	echo "websites"
+	echo "wttr"
+	echo ""
+	echo "-----------------------"
+}
+
+websites() {
+	echo "Cheatsheet  -  cheat.sh"
+	echo "Currencies  -  rate.sx"
+	echo "Weather     -  wttr.in"
+}
