@@ -72,9 +72,8 @@ function mycommands() {
 # Start a PHP server from a directory, optionally specifying the port
 function phpserver() {
 	local port="${1:-4000}";
-	local ip=$(ipconfig getifaddr en1);
-	sleep 1 && open "http://${ip}:${port}/" &
-	php -S "${ip}:${port}";
+	sleep 1 && open "http://localhost:${port}/" &
+	php -S "localhost:${port}";
 }
 
 function websites() {
