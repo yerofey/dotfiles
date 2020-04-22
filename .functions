@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
 
-genstr() {
+function genstr() {
 	echo "Random string (25 symbols):";
 	pwgen -Bcns 25 1
 }
 
-genpwd() {
+function genpwd() {
 	echo "5 strong passwords:";
 	echo ""
 	pwgen -Bcnsy -r '?!li1I0OB8|`.,:;^"[]{}\/<>()-_+~' 25 5 -1
 }
 
-genpwd1() {
+function genpwd1() {
 	pwgen -Bcnsy -r '?!li1I0OB8|`.,:;^"[]{}\/<>()-_+~' 25 1 | pbcopy;
 	echo "🔐 Strong password has been created!"
 }
 
-mycommands() {
+function mycommands() {
 	echo "----- My commands -----"
 	echo ""
 	echo "bc"
@@ -46,7 +46,7 @@ mycommands() {
 	echo "-----------------------"
 }
 
-websites() {
+function websites() {
 	echo "Cheatsheet  -  cheat.sh"
 	echo "Currencies  -  rate.sx"
 	echo "Weather     -  wttr.in"
