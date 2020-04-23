@@ -11,6 +11,10 @@ alias -g calc='~/calc'
 
 # Dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dotfiles-add='dotfiles add'
+alias dotfiles-commit='dotfiles commit -m'
+alias dotfiles-pull='dotfiles pull origin master'
+alias dotfiles-push='dotfiles push origin master'
 
 # Misc.
 alias header='curl -I'
