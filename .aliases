@@ -3,6 +3,7 @@
 # General
 alias apt-get='sudo apt-get'
 alias c='clear'
+alias up='home && brew update && brew upgrade && npm update && npm install npm -g && softwareupdate --all --install --force'
 
 # Calculator with math support
 alias bc='bc -l -q'
