@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 
-# CUSTOM ALIASES
+# General
 alias apt-get='sudo apt-get'
-alias bci='brew cask install'
 alias c='clear'
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Calculator with math support
 alias bc='bc -l -q'
 alias -g calc='~/calc'
+
+# Dotfiles
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Misc.
 alias header='curl -I'
@@ -27,6 +28,9 @@ alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 alias home='cd ~'
 
+# Files
+alias chmox='chmod +x'
+
 # Git
 alias ga='git add'
 alias gac='git add . && git commit -a -m '
@@ -35,6 +39,9 @@ alias gc='git commit -m'
 alias gcb='git checkout -b'
 alias gpo='git push origin'
 alias gs='git status'
+
+# brew
+alias bci='brew cask install'
 
 # Grep
 alias grep='grep --color=auto'
