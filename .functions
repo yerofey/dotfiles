@@ -39,36 +39,6 @@ function genpwd1() {
 	echo "🔐 Strong password has been created!"
 }
 
-function mycommands() {
-	echo "----- My commands -----"
-	echo ""
-	echo "bc"
-	echo "c"
-	echo "h, hs"
-	echo ""
-
-	echo "Git:"
-	echo "* git add               -  ga"
-	echo "* git add all & commit  -  gac"
-	echo "* git branch            -  gb"
-	echo "* git commit            -  gc"
-	echo "* git checkout -b       -  gcb"
-	echo "* git push origin       -  gpo"
-	echo "* git status            -  gs"
-	echo ""
-
-	echo "Generators:"
-	echo "* passowrds             -  genpwd, genpwd1"
-	echo "* random string         -  genstr"
-
-	echo ""
-	echo "myip"
-	echo "websites"
-	echo "wttr"
-	echo ""
-	echo "-----------------------"
-}
-
 # Start a PHP server from a directory, optionally specifying the port
 function phpserver() {
 	local port="${1:-4000}";
