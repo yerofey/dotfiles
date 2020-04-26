@@ -47,6 +47,7 @@ alias gs='git status'
 
 # brew
 alias bci='brew cask install'
+alias bcl='brew cask list'
 alias bcu='brew cask uninstall'
 
 # Grep
