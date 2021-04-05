@@ -70,6 +70,9 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+# fixes "[oh-my-zsh] Insecure completion-dependent directories detected:"
+ZSH_DISABLE_COMPFIX=true
+
 source $ZSH/oh-my-zsh.sh
 
 
@@ -88,14 +91,9 @@ source $ZSH/oh-my-zsh.sh
 
 # openssl
 export PATH="/usr/local/opt/openssl/bin:$PATH"
-# Flutter
-export PATH="${HOME}/code/cloned/flutter/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/yerofey/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yerofey/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/yerofey/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yerofey/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/opt/homebrew/opt/php@7.4/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@7.4/sbin:$PATH"
+export PATH=${PATH}:~/.composer/vendor/bin
