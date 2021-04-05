@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+arm() {
+  arch -arm64e $@
+}
+
+x86() {
+  arch -x86_64 $@
+}
+
 function cputemp() {
 	sudo powermetrics --samplers smc -i1 -n1 | grep -i "CPU die temperature" | cut -d ':' -f 2 | xargs
 }
