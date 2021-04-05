@@ -3,7 +3,7 @@
 # General
 alias apt-get='sudo apt-get'
 alias c='clear'
-alias up='home && brew update && brew upgrade && npm update && npm i npm@latest -g && softwareupdate --all --install --force'
+alias up='home && brew update && brew upgrade && npm update && npm i npm@latest -g'
 
 # Calculator with math support
 alias bc='bc -l -q'
@@ -49,6 +49,8 @@ alias gs='git status'
 alias bci='brew cask install'
 alias bcl='brew cask list'
 alias bcu='brew cask uninstall'
+alias ibrew='arch -x86_64 /usr/local/bin/brew'
+alias mbrew='arch -arm64e /opt/homebrew/bin/brew'
 
 # Grep
 alias grep='grep --color=auto'
@@ -72,4 +74,4 @@ alias wttr='curl https://wttr.in/Saint-Petersburg\?format\=3'
 alias zs='source ~/.zshrc'
 
 # apps
-alias -g wsend='/Users/yerofey/.wsend/wsend'
+#alias -g wsend='/Users/yerofey/.wsend/wsend'
