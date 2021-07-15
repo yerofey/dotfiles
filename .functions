@@ -8,12 +8,15 @@ x86() {
   arch -x86_64 $@
 }
 
-function cputemp() {
+
+
+# CPU Temperature (Big Sur)
+cputemp() {
 	sudo powermetrics --samplers smc -i1 -n1 | grep -i "CPU die temperature" | cut -d ':' -f 2 | xargs
 }
 
 # Create a data URL from a file
-function dataurl() {
+dataurl() {
 	local mimeType=$(file -b --mime-type "$1");
 	if [[ $mimeType == text/* ]]; then
 		mimeType="${mimeType};charset=utf-8";
@@ -21,12 +24,12 @@ function dataurl() {
 	echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
 }
 
-function emojihex() {
+emojihex() {
 	echo -n "$1"| hexdump
 }
 
 # Determine size of a file or total size of a directory
-function fs() {
+fs() {
 	if du -b /dev/null > /dev/null 2>&1; then
 		local arg=-sbh;
 	else
@@ -39,31 +42,39 @@ function fs() {
 	fi;
 }
 
-function genstr() {
+genstr() {
 	echo "Random string (25 symbols):";
 	pwgen -Bcns 25 1
 }
 
-function genpwd() {
+genpwd() {
 	echo "5 strong passwords:";
 	echo ""
 	pwgen -Bcnsy -r '?!li1I0OB8|`.,:;^"[]{}\/<>()-_+~' 25 5 -1
 }
 
-function genpwd1() {
+genpwd1() {
 	pwgen -Bcnsy -r '?!li1I0OB8|`.,:;^"[]{}\/<>()-_+~' 25 1 | pbcopy;
 	echo "🔐 Strong password has been created!"
 }
 
 # Start a PHP server from a directory, optionally specifying the port
-function phpserver() {
+phpserver() {
 	local port="${1:-4000}";
 	sleep 1 && open "http://localhost:${port}/" &
 	php -S "localhost:${port}";
 }
 
-function websites() {
-	echo "Cheatsheet  -  cheat.sh"
-	echo "Currencies  -  rate.sx"
-	echo "Weather     -  wttr.in"
+
+
+# crypto market top percentage
+cmtp() {
+  v=$(curl -s 'https://api.cryptorian.ru/v1/cmtp' | jq -r '.data.row.value')
+  echo "${v:0:5}%" # ${parameter:offset:length}
+}
+
+# my crypto balance
+mcb() {
+  source .secrets
+  curl -s "https://api.cryptorian.ru/v1/portfolio?token=${CRYPTORIAN_TOKEN}" | jq -r '.data.total.balance'
 }
