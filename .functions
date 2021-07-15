@@ -75,6 +75,6 @@ cmtp() {
 
 # my crypto balance
 mcb() {
-  source .secrets
+  source ~/.secrets
   curl -s "https://api.cryptorian.ru/v1/portfolio?token=${CRYPTORIAN_TOKEN}" | jq -r '.data.total.balance'
 }
