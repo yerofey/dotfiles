@@ -13,7 +13,7 @@ x86() {
 
 
 encode() {
-	echo -n "$1" | openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -a -salt -pass pass:"${MY_STRONG_PASS}"
+	echo -n "$1" | openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -a -salt -pass pass:"${MY_STRONG_PASS}" -A && echo ""
 }
 
 decode() {
