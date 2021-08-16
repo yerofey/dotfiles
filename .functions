@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+source ~/.secrets
+
+
 arm() {
   arch -arm64e $@
 }
@@ -9,10 +12,12 @@ x86() {
 }
 
 
+encode() {
+	echo -n "$1" | openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -a -salt -pass pass:"${MY_STRONG_PASS}"
+}
 
-# CPU Temperature (Big Sur)
-cputemp() {
-	sudo powermetrics --samplers smc -i1 -n1 | grep -i "CPU die temperature" | cut -d ':' -f 2 | xargs
+decode() {
+	echo "$1" | openssl aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -a -d -salt -pass pass:"${MY_STRONG_PASS}" && echo ""
 }
 
 # Create a data URL from a file
@@ -58,13 +63,13 @@ genpwd1() {
 	echo "🔐 Strong password has been created!"
 }
 
+
 # Start a PHP server from a directory, optionally specifying the port
 phpserver() {
 	local port="${1:-4000}";
 	sleep 1 && open "http://localhost:${port}/" &
 	php -S "localhost:${port}";
 }
-
 
 
 # crypto market top percentage
@@ -75,6 +80,15 @@ cmtp() {
 
 # my crypto balance
 mcb() {
-  source ~/.secrets
   curl -s "https://api.cryptorian.ru/v1/portfolio?token=${CRYPTORIAN_TOKEN}" | jq -r '.data.total.balance'
+}
+
+# BTC fast fees
+btcff() {
+	curl -s "https://mempool.space/api/v1/fees/recommended" | jq -r '.fastestFee'
+}
+
+# ETH fast fee
+ethff() {
+	curl -s "https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=${ETHERSCAN_API_KEY}" | jq -r '.result.FastGasPrice'
 }
