@@ -92,3 +92,8 @@ btcff() {
 ethff() {
 	curl -s "https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=${ETHERSCAN_API_KEY}" | jq -r '.result.FastGasPrice'
 }
+
+# share text to termbin.com
+termbin() {
+	echo -n "$1" | nc termbin.com 9999;
+}
