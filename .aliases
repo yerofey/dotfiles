@@ -3,7 +3,7 @@
 # General
 alias apt-get='sudo apt-get'
 alias c='clear'
-alias up='home && brew update && brew upgrade && yarn global upgrade'
+alias up='home && brew update && brew upgrade && yarn global upgrade && clear && echo "Brew & Yarn update finished" && echo'
 
 # Calculator with math support
 alias bc='bc -l -q'
@@ -70,8 +70,6 @@ alias nis='npm install --save '
 # wttr.in
 alias wttr='curl https://wttr.in/Saint-Petersburg\?format\=3'
 
-# zshell
-alias zs='source ~/.zshrc'
-
-# apps
-#alias -g wsend='/Users/yerofey/.wsend/wsend'
+# zshell (reload source)
+alias src='source ~/.zshrc && clear && echo "Source reloaded"'
+alias zs=src
