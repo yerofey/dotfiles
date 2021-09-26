@@ -80,7 +80,7 @@ cmtp() {
 
 # my crypto balance
 mcb() {
-  curl -s "https://api.cryptorian.ru/v1/portfolio?token=${CRYPTORIAN_TOKEN}" | jq -r '.data.total.balance'
+  curl -s "https://api.cryptorian.ru/v1/portfolio?token=${CRYPTORIAN_TOKEN}" | jq -r '.data.balance.total'
 }
 
 # BTC fast fees
@@ -96,4 +96,8 @@ ethff() {
 # share text to termbin.com
 termbin() {
 	echo -n "$1" | nc termbin.com 9999;
+}
+
+shorten() {
+	curl -F shorten=$1 https://0x0.st
 }
