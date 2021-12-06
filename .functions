@@ -20,6 +20,14 @@ decode() {
 	echo "$1" | openssl aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -a -d -salt -pass pass:"${MY_STRONG_PASS}" && echo ""
 }
 
+encrypt() {
+	echo "" && node ~/code/github/encryption/cli.js -a encrypt -s "${1}" -d 4
+}
+
+decrypt() {
+	echo "" && node ~/code/github/encryption/cli.js -a decrypt -s "${1}"
+}
+
 # Create a data URL from a file
 dataurl() {
 	local mimeType=$(file -b --mime-type "$1");
@@ -47,20 +55,20 @@ fs() {
 	fi;
 }
 
+curltime() {
+	curl -o /dev/null -s -w '* Est. connection: %{time_connect}s\n* First Byte: %{time_starttransfer}s\n* Total: %{time_total}s\n' ${1}
+}
+
 genstr() {
-	echo "Random string (25 symbols):";
-	pwgen -Bcns 25 1
+	local len=${1:-32}
+	echo "Random string (${len} symbols):";
+	pwgen -Bcns ${len} 1
 }
 
 genpwd() {
-	echo "5 strong passwords:";
-	echo ""
-	pwgen -Bcnsy -r '?!li1I0OB8|`.,:;^"[]{}\/<>()-_+~' 25 5 -1
-}
-
-genpwd1() {
-	pwgen -Bcnsy -r '?!li1I0OB8|`.,:;^"[]{}\/<>()-_+~' 25 1 | pbcopy;
-	echo "🔐 Strong password has been created!"
+	local len=${1:-32}
+	pwgen -Bcnsy -r '?!li1I0OB8|`.,:;^"[]{}\/<>()-_+~' ${len} 1 | pbcopy;
+	echo "🔐 Strong password has been created and saved to clipboard!"
 }
 
 
@@ -74,7 +82,7 @@ phpserver() {
 
 # crypto market top percentage
 cmtp() {
-  v=$(curl -s 'https://api.cryptorian.ru/v1/cmtp' | jq -r '.data.row.value')
+  local v=$(curl -s 'https://api.cryptorian.ru/v1/cmtp' | jq -r '.data.row.value')
   echo "${v:0:5}%" # ${parameter:offset:length}
 }
 
