@@ -92,7 +92,7 @@ cmtp() {
 
 # my crypto balance
 mcb() {
-  curl -s "https://api.cryptorian.ru/v1/portfolio?token=${CRYPTORIAN_TOKEN}" | jq -r '.data.balance.total'
+  curl -s "https://api.cryptorian.ru/v1/portfolio?uuid=${CRYPTORIAN_TOKEN}" | jq -r '.data.balance.real'
 }
 
 # BTC fast fees
@@ -102,7 +102,12 @@ btcff() {
 
 # ETH fast fee
 ethff() {
-	curl -s "https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=${ETHERSCAN_API_KEY}" | jq -r '.result.FastGasPrice'
+	curl -s "https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=${ETHERSCAN_API_KEY}" | jq -r '.result.ProposeGasPrice'
+}
+
+# POLYGON fast fee
+plgff() {
+	curl -s "https://api.polygonscan.com/api?module=gastracker&action=gasoracle&apikey=${POLYGONSCAN_API_KEY}" | jq -r '.result.ProposeGasPrice'
 }
 
 # share text to termbin.com
