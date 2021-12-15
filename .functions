@@ -105,6 +105,11 @@ ethff() {
 	curl -s "https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=${ETHERSCAN_API_KEY}" | jq -r '.result.ProposeGasPrice'
 }
 
+# BSC fast fee
+bscff() {
+	curl -s "https://api.bscscan.com/api?module=gastracker&action=gasoracle&apikey=${BSCSCAN_API_KEY}" | jq -r '.result.ProposeGasPrice'
+}
+
 # POLYGON fast fee
 plgff() {
 	curl -s "https://api.polygonscan.com/api?module=gastracker&action=gasoracle&apikey=${POLYGONSCAN_API_KEY}" | jq -r '.result.ProposeGasPrice'
