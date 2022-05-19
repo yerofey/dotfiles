@@ -11,6 +11,15 @@ x86() {
   arch -x86_64 $@
 }
 
+# code () {
+# if [[ $# = 0 ]]
+# then
+#     open -a "Visual Studio Code"
+# else
+#     [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
+#     open -a "Visual Studio Code" --args "$F"
+# fi
+# }
 
 encode() {
 	echo -n "$1" | openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -a -salt -pass pass:"${MY_STRONG_PASS}" -A && echo ""
@@ -67,7 +76,7 @@ genstr() {
 
 genpwd() {
 	local len=${1:-32}
-	pwgen -Bcnsy -r '?!li1I0OB8|`.,:;^"[]{}\/<>()-_+~' ${len} 1 | pbcopy;
+	pwgen -Bcnsy -r '?!li1I0OB8|`.,:;^"[]{}\/<>()-_+~'\' ${len} 1 | pbcopy;
 	echo "🔐 Strong password has been created and saved to clipboard!"
 }
 
@@ -122,4 +131,13 @@ termbin() {
 
 shorten() {
 	curl -F shorten=$1 https://0x0.st
+}
+
+# additional
+localip() {
+	ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' 
+}
+
+scannetwork() {
+	nmap -sP 172.16.0.2/24
 }
