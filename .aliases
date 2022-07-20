@@ -3,11 +3,11 @@
 # General
 alias apt-get='sudo apt-get'
 alias c='clear'
-alias up='home && brew update && brew upgrade && yarn global upgrade && clear && echo "Brew & Yarn update finished" && echo'
+alias up='home && brew update && brew upgrade && yarn global upgrade && bun upgrade && clear && echo "All updates are finished!" && echo'
 
 # Calculator with math support
 alias bc='bc -l -q'
-alias -g calc='~/calc'
+#alias -g calc='~/calc'
 
 # Dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
@@ -19,8 +19,11 @@ alias dotfiles-push='dotfiles push origin master'
 # Misc.
 alias header='curl -I'
 alias hidden='ls -ld .?*'
-alias nowtime='date +"%T"'
+alias now='date +"%d-%m-%Y %T"'
+alias nowz='date -u +"%Y-%m-%dT%H:%M:%SZ"' # ISO-8601
 alias nowdate='date +"%d-%m-%Y"'
+alias nowfull='date +%Y-%m-%dT%H:%M:%S%z'
+alias nowtime='date +"%T"'
 alias path='echo -e ${PATH//:/\\n}'
 
 # Change dir
@@ -29,12 +32,14 @@ alias ..='cd ..'
 alias ...='cd ../../../'
 alias ....='cd ../../../../'
 alias .....='cd ../../../../'
+alias .3='cd ../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 alias home='cd ~'
 
 # Files
 alias chmox='chmod +x'
+alias suduh='sudo du -sh *'
 
 # Git
 alias ga='git add'
@@ -51,6 +56,7 @@ alias bcl='brew cask list'
 alias bcu='brew cask uninstall'
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
 alias mbrew='arch -arm64e /opt/homebrew/bin/brew'
+alias brewlias='/usr/bin/osascript -e "tell application id \"com.runningwithcrayons.Alfred\" to run trigger \"build\" in workflow \"com.alfredapp.aliashomebrewapps\""'
 
 # Grep
 alias grep='grep --color=auto'
@@ -73,3 +79,11 @@ alias wttr='curl https://wttr.in/Saint-Petersburg\?format\=3'
 # zshell (reload source)
 alias src='source ~/.zshrc && clear && echo "Source reloaded"'
 alias zs=src
+
+# temp
+alias colima-remove='docker context use default'
+alias colima-k='colima start --kubernetes --cpu 1 --memory 2 --disk 10'
+
+# packages & apps
+alias pb='pretty-bytes'
+alias sb='switch-branch'
