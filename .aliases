@@ -85,6 +85,7 @@ alias colima-remove='docker context use default'
 alias colima-k='colima start --kubernetes --cpu 1 --memory 2 --disk 10'
 
 # packages & apps
+alias bunfig='curl -o bunfig.toml https://gist.githubusercontent.com/yerofey/dd26a77e7b42f960524ff2ef036d3464/raw/05e2fdfb8d9ac8797bcd12aff45ce13bef35cca8/bunfig.toml --silent && echo "Default bunfig.toml configuration file created!"'
 alias pb='pretty-bytes'
 alias sb='switch-branch'
 alias wfpass='wifi-password'
