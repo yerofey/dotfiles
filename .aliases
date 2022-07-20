@@ -87,3 +87,4 @@ alias colima-k='colima start --kubernetes --cpu 1 --memory 2 --disk 10'
 # packages & apps
 alias pb='pretty-bytes'
 alias sb='switch-branch'
+alias wfpass='wifi-password'
