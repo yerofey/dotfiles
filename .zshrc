@@ -9,6 +9,7 @@ source $HOME/.functions
 export ZSH="/Users/yerofey/.oh-my-zsh"
 
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/Users/yerofey/.cargo/bin:$PATH"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -97,3 +98,18 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export PATH="/opt/homebrew/opt/php@7.4/bin:$PATH"
 export PATH="/opt/homebrew/opt/php@7.4/sbin:$PATH"
 export PATH=${PATH}:~/.composer/vendor/bin
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for Yandex Cloud YDB CLI.
+if [ -f '/Users/yerofey/ydb/path.bash.inc' ]; then source '/Users/yerofey/ydb/path.bash.inc'; fi
+
+
+# bun completions
+[ -s "/Users/yerofey/.bun/_bun" ] && source "/Users/yerofey/.bun/_bun"
+
+# bun
+export BUN_INSTALL="/Users/yerofey/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
