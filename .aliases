@@ -1,20 +1,13 @@
 #!/usr/bin/env bash
 
 # General
-alias apt-get='sudo apt-get'
 alias c='clear'
-alias up='home && brew update && brew upgrade && yarn global upgrade && bun upgrade && clear && echo "All updates are finished!" && echo'
+alias up='home && brew update && brew upgrade && yarn global upgrade && bun upgrade && clear && echo "✨ All updates are finished!"'
 
-# Calculator with math support
-alias bc='bc -l -q'
-#alias -g calc='~/calc'
-
-# Dotfiles
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias dotfiles-add='dotfiles add'
-alias dotfiles-commit='dotfiles commit -m'
-alias dotfiles-pull='dotfiles pull origin master'
-alias dotfiles-push='dotfiles push origin master'
+# Grep
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 
 # Misc.
 alias header='curl -I'
@@ -41,6 +34,10 @@ alias home='cd ~'
 alias chmox='chmod +x'
 alias suduh='sudo du -sh *'
 
+# History
+alias h='history'
+alias hs='history | grep'
+
 # Git
 alias ga='git add'
 alias gac='git add . && git commit -a -m '
@@ -54,38 +51,28 @@ alias gs='git status'
 alias bci='brew cask install'
 alias bcl='brew cask list'
 alias bcu='brew cask uninstall'
-alias ibrew='arch -x86_64 /usr/local/bin/brew'
-alias mbrew='arch -arm64e /opt/homebrew/bin/brew'
-alias brewlias='/usr/bin/osascript -e "tell application id \"com.runningwithcrayons.Alfred\" to run trigger \"build\" in workflow \"com.alfredapp.aliashomebrewapps\""'
 
-# Grep
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+# zshell (reload source)
+alias src='source ~/.zshrc && clear && echo "✨ Source reloaded!"'
 
-# History
-alias h='history'
-alias hs='history | grep'
+# dev
+alias na='yarn add'
+alias nr='yarn remove'
+alias phpver='brew-php-switcher'
+
+# Calculator
+alias bc='bc -l -q'
+alias calc=bc
 
 # IP
 alias myip='curl http://ipecho.net/plain; echo'
 
-# NPM
-alias nis='npm install --save '
-
 # wttr.in
-alias wttr='curl https://wttr.in/Saint-Petersburg\?format\=3'
+alias wttr='curl https://wttr.in/Beograd\?format\=3'
 
-# zshell (reload source)
-alias src='source ~/.zshrc && clear && echo "Source reloaded"'
-alias zs=src
-
-# temp
-alias colima-remove='docker context use default'
-alias colima-k='colima start --kubernetes --cpu 1 --memory 2 --disk 10'
-
-# packages & apps
-alias bunfig='curl -o bunfig.toml https://gist.githubusercontent.com/yerofey/dd26a77e7b42f960524ff2ef036d3464/raw/05e2fdfb8d9ac8797bcd12aff45ce13bef35cca8/bunfig.toml --silent && echo "Default bunfig.toml configuration file created!"'
+# custom (packages & apps)
+alias bunfig='curl -o bunfig.toml https://gist.githubusercontent.com/yerofey/dd26a77e7b42f960524ff2ef036d3464/raw/05e2fdfb8d9ac8797bcd12aff45ce13bef35cca8/bunfig.toml --silent && echo "✨ Default bunfig.toml configuration file created!"'
 alias pb='pretty-bytes'
 alias sb='switch-branch'
 alias wfpass='wifi-password'
+alias wfpwd=wfpass
