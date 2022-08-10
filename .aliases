@@ -71,7 +71,7 @@ alias myip='curl http://ipecho.net/plain; echo'
 alias wttr='curl https://wttr.in/Beograd\?format\=3'
 
 # custom (packages & apps)
-alias bunfig='curl -o bunfig.toml https://gist.githubusercontent.com/yerofey/dd26a77e7b42f960524ff2ef036d3464/raw/05e2fdfb8d9ac8797bcd12aff45ce13bef35cca8/bunfig.toml --silent && echo "✨ Default bunfig.toml configuration file created!"'
+alias bunfig='curl -o bunfig.toml https://gist.githubusercontent.com/yerofey/dd26a77e7b42f960524ff2ef036d3464/raw/05a7097333ef5eca50703a7fe1f0e39966fa3514/bunfig.toml --silent && echo "✨ Default bunfig.toml configuration file created!"'
 alias pb='pretty-bytes'
 alias sb='switch-branch'
 alias wfpass='wifi-password'
