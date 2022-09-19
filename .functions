@@ -11,15 +11,6 @@ x86() {
   arch -x86_64 $@
 }
 
-# code () {
-# if [[ $# = 0 ]]
-# then
-#     open -a "Visual Studio Code"
-# else
-#     [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
-#     open -a "Visual Studio Code" --args "$F"
-# fi
-# }
 
 encode() {
 	echo -n "$1" | openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -a -salt -pass pass:"${MY_STRONG_PASS}" -A && echo ""
@@ -30,11 +21,11 @@ decode() {
 }
 
 encrypt() {
-	echo "" && node ~/code/github/encryption/cli.js -a encrypt -s "${1}" -d 4
+	node ~/code/github/encryption/cli.js -a encrypt -s "${1}" -d 4
 }
 
 decrypt() {
-	echo "" && node ~/code/github/encryption/cli.js -a decrypt -s "${1}"
+	node ~/code/github/encryption/cli.js -a decrypt -s "${1}"
 }
 
 # Create a data URL from a file
@@ -88,7 +79,7 @@ uuid() {
 # Start a PHP server from a directory, optionally specifying the port
 phpserver() {
 	local port="${1:-4000}";
-	sleep 1 && open "http://localhost:${port}/" &
+	# sleep 1 && open "http://localhost:${port}/" &
 	php -S "localhost:${port}";
 }
 
@@ -129,13 +120,9 @@ termbin() {
 	echo -n "$1" | nc termbin.com 9999;
 }
 
-shorten() {
-	curl -F shorten=$1 https://0x0.st
-}
-
 # additional
 localip() {
-	ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' 
+	ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}'
 }
 
 scannetwork() {
