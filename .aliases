@@ -2,7 +2,7 @@
 
 # General
 alias c='clear'
-alias up='home && brew update && brew upgrade && yarn global upgrade && bun upgrade && clear && echo "✨ All updates are finished!"'
+alias up='home && brew update && bun upgrade && clear && echo "✨ All updates are finished!"'
 
 # Grep
 alias grep='grep --color=auto'
@@ -10,6 +10,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 # Misc.
+alias cls='exa --icons -lh'
 alias header='curl -I'
 alias hidden='ls -ld .?*'
 alias now='date +"%d-%m-%Y %T"'
@@ -33,6 +34,8 @@ alias home='cd ~'
 # Files
 alias chmox='chmod +x'
 alias suduh='sudo du -sh *'
+alias find_nm='find . -name "node_modules" -type d -prune -print | xargs du -chs'
+alias rm_nm='find . -name "node_modules" -type d -prune -exec rm -rf "{}" +';
 
 # History
 alias h='history'
@@ -47,18 +50,18 @@ alias gcb='git checkout -b'
 alias gpo='git push origin'
 alias gs='git status'
 
-# brew
-alias bci='brew cask install'
-alias bcl='brew cask list'
-alias bcu='brew cask uninstall'
-
 # zshell (reload source)
 alias src='source ~/.zshrc && clear && echo "✨ Source reloaded!"'
 
 # dev
-alias na='yarn add'
-alias nr='yarn remove'
 alias phpver='brew-php-switcher'
+alias pn=pnpm
+alias pna='pnpm add'
+alias pnc='pnpm create'
+alias pni='pnpm install'
+alias pnr='pnpm remove'
+alias pns='pnpm run'
+alias pnup='pnpm up --latest'
 
 # Calculator
 alias bc='bc -l -q'
@@ -66,9 +69,6 @@ alias calc=bc
 
 # IP
 alias myip='curl http://ipecho.net/plain; echo'
-
-# wttr.in
-alias wttr='curl https://wttr.in/Beograd\?format\=3'
 
 # custom (packages & apps)
 alias bunfig='curl -o bunfig.toml https://gist.githubusercontent.com/yerofey/dd26a77e7b42f960524ff2ef036d3464/raw/05a7097333ef5eca50703a7fe1f0e39966fa3514/bunfig.toml --silent && echo "✨ Default bunfig.toml configuration file created!"'
