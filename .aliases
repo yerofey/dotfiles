@@ -2,7 +2,7 @@
 
 # General
 alias c='clear'
-alias up='home && brew update && bun upgrade && clear && echo "✨ All updates are finished!"'
+alias up='home && brew update && brew upgrade && bun upgrade && pnpm add -g pnpm && clear && echo "✨ All updates are finished!"'
 
 # Grep
 alias grep='grep --color=auto'
@@ -34,8 +34,8 @@ alias home='cd ~'
 # Files
 alias chmox='chmod +x'
 alias suduh='sudo du -sh *'
-alias find_nm='find . -name "node_modules" -type d -prune -print | xargs du -chs'
-alias rm_nm='find . -name "node_modules" -type d -prune -exec rm -rf "{}" +';
+alias find_nm='find . -name "node_modules" -type d -prune -print | xargs du -chs' # find all "node_modules/" dirs in current scope
+alias rm_nm='find . -name "node_modules" -type d -prune -exec rm -rf "{}" +'; # delete all "node_modules/" dirs in current scope
 
 # History
 alias h='history'
@@ -49,14 +49,15 @@ alias gc='git commit -m'
 alias gcb='git checkout -b'
 alias gpo='git push origin'
 alias gs='git status'
+alias ghcombine='gh combine-prs --query \"author:app/dependabot\"'
 
 # zshell (reload source)
 alias src='source ~/.zshrc && clear && echo "✨ Source reloaded!"'
 
 # dev
-alias phpver='brew-php-switcher'
 alias pn=pnpm
 alias pna='pnpm add'
+alias pnag='pnpm add -g'
 alias pnc='pnpm create'
 alias pni='pnpm install'
 alias pnr='pnpm remove'
