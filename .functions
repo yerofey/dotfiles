@@ -60,15 +60,15 @@ curltime() {
 }
 
 genstr() {
-	local len=${1:-32}
-	echo "Random string (${len} symbols):";
+	local len=${1:-20}
+	echo "Random string generated [${len}]:";
 	pwgen -Bcns ${len} 1
 }
 
 genpwd() {
-	local len=${1:-32}
+	local len=${1:-20}
 	pwgen -Bcnsy -r '?!li1I0OB8|`.,:;^"[]{}\/<>()-_+~'\' ${len} 1 | pbcopy;
-	echo "🔐 Strong password has been created and saved to clipboard!"
+	echo "🔐 Strong password has been created and saved to clipboard! [${len}]"
 }
 
 uuid() {
