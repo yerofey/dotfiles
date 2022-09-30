@@ -69,7 +69,16 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+	#alias-tips
+	#alias-zsh
+	#artisan
+	cmdtime
+	#colored-man-pages
+	#composer
+	git
+	zsh-autosuggestions
+)
 
 # fixes "[oh-my-zsh] Insecure completion-dependent directories detected:"
 ZSH_DISABLE_COMPFIX=true
@@ -77,35 +86,18 @@ ZSH_DISABLE_COMPFIX=true
 source $ZSH/oh-my-zsh.sh
 
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-
 # openssl
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-export PATH="/opt/homebrew/opt/php@7.4/bin:$PATH"
-export PATH="/opt/homebrew/opt/php@7.4/sbin:$PATH"
+export PATH="/opt/homebrew/opt/php@8.1/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@8.1/sbin:$PATH"
 export PATH=${PATH}:~/.composer/vendor/bin
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# The next line updates PATH for Yandex Cloud YDB CLI.
-if [ -f '/Users/yerofey/ydb/path.bash.inc' ]; then source '/Users/yerofey/ydb/path.bash.inc'; fi
-
 
 # bun completions
 [ -s "/Users/yerofey/.bun/_bun" ] && source "/Users/yerofey/.bun/_bun"
@@ -113,3 +105,7 @@ if [ -f '/Users/yerofey/ydb/path.bash.inc' ]; then source '/Users/yerofey/ydb/pa
 # bun
 export BUN_INSTALL="/Users/yerofey/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/yerofey/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
