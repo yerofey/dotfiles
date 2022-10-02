@@ -3,5 +3,8 @@
 	email = pm@yerofey.dev
 [core]
 	autocrlf = input
+	ignorecase = false
 [credential]
 	helper = osxkeychain
+[init]
+	defaultBranch = master
