@@ -74,11 +74,20 @@ plugins=(
 	#alias-zsh
 	#artisan
 	cmdtime
-	#colored-man-pages
+	# envrc # .envrc
 	#composer
 	git
-	zsh-autosuggestions
+	# laravelX
+	update-plugin # zupdate, zupdate ls, zupdate some-plugin
+	which-jspm
+	#zsh-autosuggestions
+	zsh-auto-nvm
+	# zshrc # loads .zshrc from current directory
+	zsh-valet # .valetphprc "php@8.1"
 )
+
+PHPVRC_DEFAULT=8.1
+#VALETPHPRC_DEFAULT_PHP=php@8.1
 
 # fixes "[oh-my-zsh] Insecure completion-dependent directories detected:"
 ZSH_DISABLE_COMPFIX=true
