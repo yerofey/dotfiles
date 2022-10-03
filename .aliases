@@ -2,7 +2,7 @@
 
 # General
 alias c='clear'
-alias up='home && brew update && brew upgrade && bun upgrade && pnpm add -g pnpm && clear && echo "✨ All updates are finished!"'
+alias up='home && brew update && brew upgrade && bun upgrade && pnpm add -g pnpm && pnpm upgrade -g && zup && clear && echo "✨ All updates are finished!"'
 
 # Grep
 alias grep='grep --color=auto'
@@ -51,8 +51,13 @@ alias gpo='git push origin'
 alias gs='git status'
 alias ghcombine='gh combine-prs --query \"author:app/dependabot\"'
 
-# zshell (reload source)
+# dotfiles
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# zshrc
 alias src='source ~/.zshrc && clear && echo "✨ Source reloaded!"'
+alias zls='zupdate ls' # zshrc plugin "update-plugin"
+alias zup='zupdate' # zshrc plugin "update-plugin"
 
 # dev
 alias pn=pnpm
@@ -62,7 +67,8 @@ alias pnc='pnpm create'
 alias pni='pnpm install'
 alias pnr='pnpm remove'
 alias pns='pnpm run'
-alias pnup='pnpm up --latest'
+alias pnup='pnpm upgrade'
+alias pnupg='pnpm upgrade -g'
 
 # Calculator
 alias bc='bc -l -q'
