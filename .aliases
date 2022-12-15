@@ -2,7 +2,7 @@
 
 # General
 alias c='clear'
-alias up='home && brew update && brew upgrade && bun upgrade && pnpm add -g pnpm && pnpm upgrade -g && zup && clear && echo "✨ All updates are finished!"'
+alias up='home && brew update && brew upgrade && brew cleanup && bun upgrade && pnpm add -g pnpm && pnpm upgrade -g && zup && clear && echo "✨ All updates are finished!"'
 
 # Grep
 alias grep='grep --color=auto'
