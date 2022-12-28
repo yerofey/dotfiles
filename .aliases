@@ -62,6 +62,7 @@ alias zup='zupdate' # zshrc plugin "update-plugin"
 # dev
 alias pn=pnpm
 alias pna='pnpm add'
+alias pnad='pnpm add -D'
 alias pnag='pnpm add -g'
 alias pnc='pnpm create'
 alias pni='pnpm install'
