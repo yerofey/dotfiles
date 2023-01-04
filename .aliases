@@ -60,12 +60,15 @@ alias zls='zupdate ls' # zshrc plugin "update-plugin"
 alias zup='zupdate' # zshrc plugin "update-plugin"
 
 # dev
+alias _r='bun run'
 alias pn=pnpm
 alias pna='pnpm add'
 alias pnad='pnpm add -D'
 alias pnag='pnpm add -g'
 alias pnc='pnpm create'
 alias pni='pnpm install'
+alias pnit='pnpm init'
+alias pnnp='pnpm init && pnpm install'
 alias pnr='pnpm remove'
 alias pns='pnpm run'
 alias pnup='pnpm upgrade'
@@ -77,11 +80,11 @@ alias bc='bc -l -q'
 alias calc=bc
 
 # IP
-alias myip='curl http://ipecho.net/plain; echo'
+alias myip='curl api.ipify.org && echo'
 
 # custom (packages & apps)
 alias bunfig='curl -o bunfig.toml https://gist.githubusercontent.com/yerofey/dd26a77e7b42f960524ff2ef036d3464/raw/05a7097333ef5eca50703a7fe1f0e39966fa3514/bunfig.toml --silent && echo "✨ Default bunfig.toml configuration file created!"'
-alias pb='pretty-bytes'
+alias onl='is-online' # is-online-cli (NPM)
+alias pb='pretty-bytes' # pretty-bytes-cli (NPM)
 alias sb='switch-branch'
-alias wfpass='wifi-password'
-alias wfpwd=wfpass
+alias wifipass='wifi-password' # wifi-password (brew)
