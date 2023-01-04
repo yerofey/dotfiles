@@ -72,18 +72,19 @@ ZSH_THEME="robbyrussell"
 plugins=(
 	#alias-tips
 	#alias-zsh
-	#artisan
+	artisan
 	cmdtime
 	# envrc # .envrc
 	#composer
 	git
-	# laravelX
+	laravel-sail
+	#laravelX
 	update-plugin # zupdate, zupdate ls, zupdate some-plugin
 	which-jspm
 	#zsh-autosuggestions
 	zsh-auto-nvm
 	# zshrc # loads .zshrc from current directory
-	zsh-valet # .valetphprc "php@8.1"
+	# zsh-valet # .valetphprc "php@8.1"
 )
 
 VALETPHPRC_DEFAULT_PHP=php@8.1
