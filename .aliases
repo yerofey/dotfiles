@@ -61,6 +61,7 @@ alias zup='zupdate' # zshrc plugin "update-plugin"
 
 # dev
 alias _r='bun run'
+alias a='artisan'
 alias pn=pnpm
 alias pna='pnpm add'
 alias pnad='pnpm add -D'
