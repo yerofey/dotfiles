@@ -74,6 +74,7 @@ alias pnr='pnpm remove'
 alias pns='pnpm run'
 alias pnup='pnpm upgrade'
 alias pnupg='pnpm upgrade -g'
+alias pnups="pnpm update -i --latest"
 alias pnx='pnpm exec'
 
 # Calculator
