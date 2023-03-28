@@ -61,21 +61,23 @@ alias zup='zupdate' # zshrc plugin "update-plugin"
 
 # dev
 alias _r='bun run'
-alias a='artisan'
+alias _x='pnpm exec'
 alias pn=pnpm
 alias pna='pnpm add'
 alias pnad='pnpm add -D'
 alias pnag='pnpm add -g'
 alias pnc='pnpm create'
+alias pnex='pnpm exec'
 alias pni='pnpm install'
 alias pnit='pnpm init'
 alias pnnp='pnpm init && pnpm install'
 alias pnr='pnpm remove'
 alias pns='pnpm run'
+alias pnscr='pnpm run'
 alias pnup='pnpm upgrade'
 alias pnupg='pnpm upgrade -g'
 alias pnups="pnpm update -i --latest"
-alias pnx='pnpm exec'
+alias pnx='pnpm dlx'
 
 # Calculator
 alias bc='bc -l -q'
