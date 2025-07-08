@@ -2,12 +2,7 @@
 
 # General
 alias c='clear'
-alias up='home && brew update && brew upgrade && brew cleanup && brew autoremove && composer global update && bun upgrade && pnpm add -g pnpm && pnpm upgrade -g && npm i -g npm && npm upgrade -g && yarn global upgrade && omz update && zup && clear && echo "✨ All updates are finished!"'
-
-# Grep
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+alias up='home && brew update && brew upgrade && brew cleanup && brew autoremove && composer global update && bun upgrade && bun update -g && npm i -g npm && npm upgrade -g && yarn global upgrade && rustup update && omz update && zupdate && clear && echo "✨ All updates are finished!"'
 
 # Misc.
 alias cls='exa --icons -lh'
@@ -51,7 +46,6 @@ alias gc='git commit -m'
 alias gcb='git checkout -b'
 alias gpo='git push origin'
 alias gs='git status'
-alias ghcombine='gh combine-prs --query \"author:app/dependabot\"'
 
 # dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
@@ -64,21 +58,6 @@ alias zup='zupdate' # zshrc plugin "update-plugin"
 # dev
 alias _r='bun run'
 alias _x='pnpm exec'
-alias pn=pnpm
-alias pna='pnpm add'
-alias pnad='pnpm add -D'
-alias pnag='pnpm add -g'
-alias pnc='pnpm create'
-alias pnex='pnpm exec'
-alias pni='pnpm install'
-alias pnit='pnpm init'
-alias pnnp='pnpm init && pnpm install'
-alias pnr='pnpm remove'
-alias pns='pnpm run'
-alias pnscr='pnpm run'
-alias pnup='pnpm upgrade'
-alias pnupg='pnpm upgrade -g'
-alias pnups="pnpm update -i --latest"
 alias pnx='pnpm dlx'
 
 # Calculator
@@ -89,8 +68,10 @@ alias calc=bc
 alias myip='curl api.ipify.org && echo'
 
 # custom (packages & apps)
-alias bunfig='curl -o bunfig.toml https://gist.githubusercontent.com/yerofey/dd26a77e7b42f960524ff2ef036d3464/raw/05a7097333ef5eca50703a7fe1f0e39966fa3514/bunfig.toml --silent && echo "✨ Default bunfig.toml configuration file created!"'
 alias onl='is-online' # is-online-cli (NPM)
 alias pb='pretty-bytes' # pretty-bytes-cli (NPM)
 alias sb='switch-branch'
 alias wifipass='wifi-password' # wifi-password (brew)
+
+# Mac OS
+alias fix_tb='sudo pkill TouchBarServer'
