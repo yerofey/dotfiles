@@ -72,6 +72,7 @@ alias onl='is-online' # is-online-cli (NPM)
 alias pb='pretty-bytes' # pretty-bytes-cli (NPM)
 alias sb='switch-branch'
 alias wifipass='wifi-password' # wifi-password (brew)
+alias ws='windsurf'
 
 # Mac OS
 alias fix_tb='sudo pkill TouchBarServer'
