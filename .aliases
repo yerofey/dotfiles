@@ -30,9 +30,12 @@ alias home='cd ~'
 alias chmox='chmod +x'
 alias suduh='sudo du -sh *'
 alias find_nm='find . -name "node_modules" -type d -prune -print | xargs du -chs' # find all "node_modules/" dirs in current scope
-alias rm_nm='find . -name "node_modules" -type d -prune -exec rm -rf "{}" +'; # delete all "node_modules/" dirs in current scope
-alias finder_show_hidden='defaults write com.apple.finder AppleShowAllFiles YES && killall Finder';
-alias finder_hide_hidden='defaults write com.apple.finder AppleShowAllFiles NO && killall Finder';
+alias rm_nm='find . -name "node_modules" -type d -prune -exec rm -rf "{}" +' # delete all "node_modules/" dirs in current scope
+alias finder_show='defaults write com.apple.finder AppleShowAllFiles YES && killall Finder'
+alias finder_hide='defaults write com.apple.finder AppleShowAllFiles NO && killall Finder'
+
+# Processes
+alias find_ps='ps aux | grep -v grep | grep'
 
 # History
 alias h='history'
@@ -44,21 +47,14 @@ alias gac='git add . && git commit -a -m '
 alias gb='git branch'
 alias gc='git commit -m'
 alias gcb='git checkout -b'
+alias gco='git checkout --orphan'
 alias gpo='git push origin'
 alias gs='git status'
-
-# dotfiles
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # zshrc
 alias src='source ~/.zshrc && clear && echo "✨ Source reloaded!"'
 alias zls='zupdate ls' # zshrc plugin "update-plugin"
 alias zup='zupdate' # zshrc plugin "update-plugin"
-
-# dev
-alias _r='bun run'
-alias _x='pnpm exec'
-alias pnx='pnpm dlx'
 
 # Calculator
 alias bc='bc -l -q'
