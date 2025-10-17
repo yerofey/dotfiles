@@ -63,12 +63,15 @@ alias calc=bc
 # IP
 alias myip='curl api.ipify.org && echo'
 
+# Mac OS
+alias fix_tb='sudo pkill TouchBarServer'
+
+# Brew
+alias bui='brew uses --installed'
+
 # custom (packages & apps)
 alias onl='is-online' # is-online-cli (NPM)
 alias pb='pretty-bytes' # pretty-bytes-cli (NPM)
 alias sb='switch-branch'
 alias wifipass='wifi-password' # wifi-password (brew)
 alias ws='windsurf'
-
-# Mac OS
-alias fix_tb='sudo pkill TouchBarServer'
