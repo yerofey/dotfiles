@@ -70,6 +70,7 @@ alias fix_tb='sudo pkill TouchBarServer'
 alias bui='brew uses --installed'
 
 # custom (packages & apps)
+alias ag='antigravity'
 alias onl='is-online' # is-online-cli (NPM)
 alias pb='pretty-bytes' # pretty-bytes-cli (NPM)
 alias sb='switch-branch'
