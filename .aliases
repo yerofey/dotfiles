@@ -48,6 +48,8 @@ alias gb='git branch'
 alias gc='git commit -m'
 alias gcb='git checkout -b'
 alias gco='git checkout --orphan'
+alias gpf='git push --force-with-lease'
+alias gpff='git push --force-with-lease --force-if-includes'
 alias gpo='git push origin'
 alias gs='git status'
 
