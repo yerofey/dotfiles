@@ -2,6 +2,31 @@
 
 source ~/.secrets
 
+# define the alias
+def() {
+	if [[ -z "$1" ]]; then
+		echo "Usage: src <command-or-alias>"
+		return 1
+	fi
+
+	local name="$1"
+	echo "🔍 Investigating: $name"
+	echo "────────────────────────────────"
+	whence -v "$name" 2>/dev/null || echo "Not found by whence"
+
+	if alias "$name" >/dev/null 2>&1; then
+		echo -e "\n→ Alias expansion:"
+		alias "$name"
+	fi
+
+	echo -e "\n→ Type info:"
+	type "$name" 2>/dev/null || echo "Not found"
+
+	if whence -c "$name" >/dev/null 2>&1; then
+		echo -e "\n→ Function preview (first 5 lines):"
+		whence -f "$name" | head -5
+	fi
+}
 
 encode() {
 	echo -n "$1" | openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -a -salt -pass pass:"${MY_STRONG_PASS}" -A && echo ""
