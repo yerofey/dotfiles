@@ -48,11 +48,15 @@ alias gb='git branch'
 alias gc='git commit -m'
 alias gcb='git checkout -b'
 alias gco='git checkout --orphan'
+alias gford='git fetch origin develop && git rebase origin/develop'
+alias glo='git log --oneline'
+alias glog='git log --oneline --graph'
+alias glogd='git log --oneline origin/develop..HEAD'
 alias gpf='git push --force-with-lease'
 alias gpff='git push --force-with-lease --force-if-includes'
 alias gpo='git push origin'
 alias gpr='git pull --rebase'
-alias grbd='git fetch origin && git rebase origin/develop'
+alias gprf='git pull --rebase --force'
 alias gs='git status'
 
 # zshrc
@@ -75,6 +79,8 @@ alias bui='brew uses --installed'
 
 # custom (packages & apps)
 alias ag='antigravity'
+alias cc='claude'
+alias oc='ollama launch claude'
 alias onl='is-online' # is-online-cli (NPM)
 alias pb='pretty-bytes' # pretty-bytes-cli (NPM)
 alias sb='switch-branch'
