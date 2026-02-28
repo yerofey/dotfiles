@@ -57,6 +57,7 @@ alias gpff='git push --force-with-lease --force-if-includes'
 alias gpr='git pull --rebase'
 alias gprf='git pull --rebase --force'
 alias gs='git status'
+alias gtouch='git commit --amend --no-edit --date=now'
 
 # zshrc
 alias src='source ~/.zshrc && clear && echo "✨ Source reloaded!"'
