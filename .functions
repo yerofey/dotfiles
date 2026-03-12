@@ -28,20 +28,31 @@ def() {
 	fi
 }
 
+# Bumps the timestamp of the most recent Git commit by 1 second (author & committer dates) 
+# without changing the commit message or contents. Useful for re-triggering CI/CD
+gtouch() {
+  if ! git rev-parse --verify HEAD >/dev/null 2>&1; then
+    echo "Error: No commits yet in this repo."
+    return 1
+  fi
+
+  # Capture separately – avoids zsh nesting quirks
+  local ts=$(git log -1 --format=%at)
+  local new_ts=$(( ts + 1 ))
+
+  GIT_AUTHOR_DATE="$new_ts +0000" \
+  GIT_COMMITTER_DATE="$new_ts +0000" \
+  git commit --amend --no-edit --date="$new_ts +0000"
+
+  echo "Touched commit timestamp → now $(git log -1 --format=%at)"
+}
+
 encode() {
 	echo -n "$1" | openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -a -salt -pass pass:"${MY_STRONG_PASS}" -A && echo ""
 }
 
 decode() {
 	echo "$1" | openssl aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -a -d -salt -pass pass:"${MY_STRONG_PASS}" && echo ""
-}
-
-encrypt() {
-	node ~/code/github/encryption/cli.js -a encrypt -s "${1}" -d 4
-}
-
-decrypt() {
-	node ~/code/github/encryption/cli.js -a decrypt -s "${1}"
 }
 
 # Create a data URL from a file
@@ -51,10 +62,6 @@ dataurl() {
 		mimeType="${mimeType};charset=utf-8";
 	fi
 	echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
-}
-
-emojihex() {
-	echo -n "$1"| hexdump
 }
 
 # Determine size of a file or total size of a directory
@@ -103,38 +110,6 @@ phpserver() {
 	local port="${1:-4000}";
 	# sleep 1 && open "http://localhost:${port}/" &
 	php -S "localhost:${port}";
-}
-
-
-# crypto market top percentage
-cmtp() {
-  local v=$(curl -s 'https://api.cryptorian.ru/v1/cmtp' | jq -r '.data.row.value')
-  echo "${v:0:5}%" # ${parameter:offset:length}
-}
-
-# my crypto balance
-mcb() {
-  curl -s "https://api.cryptorian.ru/v1/portfolio?uuid=${CRYPTORIAN_TOKEN}" | jq -r '.data.balance.real'
-}
-
-# BTC fast fees
-btcff() {
-	curl -s "https://mempool.space/api/v1/fees/recommended" | jq -r '.fastestFee'
-}
-
-# ETH fast fee
-ethff() {
-	curl -s "https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=${ETHERSCAN_API_KEY}" | jq -r '.result.ProposeGasPrice'
-}
-
-# BSC fast fee
-bscff() {
-	curl -s "https://api.bscscan.com/api?module=gastracker&action=gasoracle&apikey=${BSCSCAN_API_KEY}" | jq -r '.result.ProposeGasPrice'
-}
-
-# POLYGON fast fee
-plgff() {
-	curl -s "https://api.polygonscan.com/api?module=gastracker&action=gasoracle&apikey=${POLYGONSCAN_API_KEY}" | jq -r '.result.ProposeGasPrice'
 }
 
 # additional
