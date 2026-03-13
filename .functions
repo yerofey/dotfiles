@@ -47,6 +47,21 @@ gtouch() {
   echo "Touched commit timestamp → now $(git log -1 --format=%at)"
 }
 
+# unalias ... for zsh
+un() {
+    local name=$1
+    if [[ -z "$name" ]]; then
+        echo "Usage: un <alias>"
+        return 1
+    fi
+    if whence -w "$name" | grep -q "alias"; then
+        command unalias "$name" && echo "→ Unaliased $name"
+    else
+        echo "→ '$name' is not an alias"
+        return 1
+    fi
+}
+
 encode() {
 	echo -n "$1" | openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -a -salt -pass pass:"${MY_STRONG_PASS}" -A && echo ""
 }
